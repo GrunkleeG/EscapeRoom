@@ -9,7 +9,7 @@ Room1 room1=new Room1();
 void setup() {
   e=new EscapeRoom();
   a=new EscapeRoom2();
-  size(820, 620);
+  size(820, 640);
   p1=loadImage("images/EscapeR.jpg");
   p2=loadImage("images/EscapeR1.jpg");
   a=new EscapeRoom2();
@@ -21,11 +21,11 @@ void draw() {
   e.display();
   changeScenes();
   if (r1==true) {
-    image(p1, 10, 10);
+    image(p1, 20, 20);
     p1.resize(800, 600);
   }
   if (r2==true) {
-    image(p2, 10, 10);
+    image(p2, 20, 20);
     p2.resize(800, 600);
   }
 }
@@ -35,7 +35,7 @@ void changeScenes() {
     r1=true;
   }
   if (mousePressed==true && mouseX>0&&mouseX<100&&mouseY>400&&mouseY<500) {
-    text("good job", 10, 10);
+    text("good job", 10, 15);
     r2=true;
   }
   if (mousePressed==true && mouseX>0&&mouseX<100&&mouseY>400&&mouseY<500) {
