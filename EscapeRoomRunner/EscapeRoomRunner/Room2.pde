@@ -1,8 +1,9 @@
-public class EscapeRoom2{
+public class Room2{
   
-  public EscapeRoom2(){
+  public Room2(){
   }
   void display(){
+    
   }
 
    void clic() {
