@@ -1,13 +1,17 @@
 
 int roomNum;
 
-EscapeRoom room0 = new EscapeRoom();
-Room1 room1=new Room1();
-Room2 room2=new Room2();
-Menu menu= new Menu();
+EscapeRoom room0;
+Room1 room1;
+Room2 room2; //2=new Room2();
+Menu menu; //= new Menu();
 
 
 void setup() {
+  menu = new Menu();
+  room0 = new EscapeRoom();
+  room1 = new Room1();
+  room2 =new Room2();
   size(820, 640);
   menu.setup();
   room0.setup();
@@ -24,8 +28,8 @@ void draw() {
       roomNum=0;
     }
   } else if (roomNum == 0) {
-    room0.click();
     room0.display();
+    room0.hover();
     if (room0.changeScenes()) {
       roomNum = 1;
     }
@@ -44,12 +48,13 @@ void draw() {
   }
 }
 
-//void mousePressed() {
-//  if (roomNum == -1) {
-//  } else if (roomNum == 0) {
-    
-//  } else if (roomNum == 1) {
-//  } else if (roomNum == 2) {
-//  } else {
-//  }
-//}
+void mousePressed() { //Processing calls this when you press and release the mouse
+  if (roomNum == -1) {
+    //We're not clicking in the menu area
+  } else if (roomNum == 0) {
+    room0.click();
+  } else if (roomNum == 1) {
+  } else if (roomNum == 2) {
+  } else {
+  }
+}

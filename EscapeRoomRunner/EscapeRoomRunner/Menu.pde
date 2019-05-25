@@ -9,7 +9,7 @@ public class Menu {
     textSize(40);
     text("Prison Escape", 310, 220);
     textSize(20);
-    text("Use objects in rooms to escape from room to room" + "\n" + "press any key to begin", 220, 250);
+    text("You are in prison and need to escape. \nUse objects to escape from the rooms." + "\n" + "Grabbing too many objects will get you caught." + "\n" + "press any key to begin", 220, 250);
   }
   boolean changeScenes() {
     if (keyPressed == true) {

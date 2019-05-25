@@ -1,5 +1,8 @@
 class Room1 {
 PImage p2;
+int textx=7; 
+int texty=10;
+  
   public Room1() {
   }
 
@@ -9,6 +12,7 @@ PImage p2;
 
   void display() {
     text("that wont work",100,100);
+    text("Hallway- The facuet was used to break door lock",320, texty);
     
     image(p2, 10, 25);
     p2.resize(800, 600);
