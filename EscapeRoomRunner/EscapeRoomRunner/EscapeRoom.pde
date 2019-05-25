@@ -1,31 +1,62 @@
 public class EscapeRoom {
+  PImage p1;
+  int count;
 
- // Room1 room1=new Room1();
   public EscapeRoom() {
+  }
+  void setup() {
+    p1=loadImage("images/EscapeR.jpg");
+    count=0;
   }
 
   void display() {
-    textSize(20);
-    text("Try to escape", 360, 220);
+
+    image(p1, 10, 25);
+    p1.resize(800, 600);
   }
 
   void draw() {
-   
   }
+  
   void click() {
-    if( mouseX>400&&mouseX<470&&mouseY>200&&mouseY<300){
-    cursor(HAND);
-    textSize(20);
-    text("click to grab cup", 7, 10);
+    if ( mouseX>400&&mouseX<470&&mouseY>200&&mouseY<300) { //Cup
+      if (mousePressed) {
+        count++;
+        textSize(20);
+        text("That won't work", 7, 10);
+        println("Not working");
+      } else {
+        cursor(HAND);
+        textSize(20);
+        text("(Cup)-holds hot liquids", 7, 10);
+      }
     }
-    
-    if (mousePressed==true && mouseX>350&&mouseX<400&&mouseY>200&&mouseY<300) {
-      cursor(HAND);
-      textSize(20);
-      text("That won't work", 7, 10);
-      println("Not working");
-     }
+  }
 
-    
+  boolean changeScenes() {
+    if (mouseX>0&&mouseX<100&&mouseY>400&&mouseY<500) { // Sink
+      if (mousePressed) {
+        
+        text("good job", 10, 15);
+        return true;
+      } else {
+        cursor(HAND);
+        textSize(20);
+        text("(Faucet)- use metal to break lock on door", 7, 10);
+        return false;
+      }
+    } else {
+
+      return false;
+    }
+  }
+
+  boolean roomFailed() {
+    if (count>=3) {
+      count=0;
+      return true;
+    } else {
+      return false;
+    }
   }
 }

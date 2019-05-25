@@ -6,7 +6,7 @@ public class Room2{
     
   }
 
-   void clic() {
+   void click() {
       if (mousePressed==true && mouseX>300&&mouseX<400&&mouseY>200&&mouseY<280) {
         println("Hi");
        // o=true;
