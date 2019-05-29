@@ -1,60 +1,46 @@
+EscapeRoom e;
+EscapeRoom2 a;
+boolean scene=false;
+PImage p1, p2;
+boolean r1, r2=false;
 
-int roomNum;
-
-EscapeRoom room0;
-Room1 room1;
-Room2 room2; //2=new Room2();
-Menu menu; //= new Menu();
-
+Room1 room1=new Room1();
 
 void setup() {
-  menu = new Menu();
-  room0 = new EscapeRoom();
-  room1 = new Room1();
-  room2 =new Room2();
+  e=new EscapeRoom();
+  a=new EscapeRoom2();
   size(820, 640);
-  menu.setup();
-  room0.setup();
-  room1.setup();
-  roomNum = -1;
+  p1=loadImage("images/EscapeR.jpg");
+  p2=loadImage("images/EscapeR1.jpg");
+  a=new EscapeRoom2();
 }
-
 void draw() {
   background(0);
-  System.out.println(roomNum);
-  if (roomNum == -1) {
-    menu.display();
-    if (menu.changeScenes()) {
-      roomNum=0;
-    }
-  } else if (roomNum == 0) {
-    room0.display();
-    room0.hover();
-    if (room0.changeScenes()) {
-      roomNum = 1;
-    }
-    if(room0.roomFailed()){
-      roomNum=-1;
-    }
-    
-  } else if (roomNum == 1) {
-    room1.click();
-    room1.display();
-  } else if (roomNum == 2) {
-    room2.click();
-    room2.display();
-  } else {
-    roomNum = -1;
+  e.click();
+  a.clic();
+  e.display();
+  changeScenes();
+  if (r1==true) {
+    image(p1, 10, 20);
+    p1.resize(800, 600);
+  }
+  if (r2==true) {
+    image(p2, 10, 20);
+    p2.resize(800, 600);
   }
 }
-
-void mousePressed() { //Processing calls this when you press and release the mouse
-  if (roomNum == -1) {
-    //We're not clicking in the menu area
-  } else if (roomNum == 0) {
-    room0.click();
-  } else if (roomNum == 1) {
-  } else if (roomNum == 2) {
-  } else {
+void changeScenes() {
+  if (mousePressed==true && mouseX>350&&mouseX<4500&&mouseY>200&&mouseY<300) {
+    room1.display();
+    r1=true;
+  }
+  //if (mousePressed==true && mouseX>0&&mouseX<100&&mouseY>400&&mouseY<500) {
+    if(keyPressed && key =='a'){
+     textSize(15);
+    text("good job", 10, 15);
+    r2=true;
+  }
+  if (mousePressed==true && mouseX>0&&mouseX<100&&mouseY>400&&mouseY<500) {
+    text("g", 0, 0);
   }
 }

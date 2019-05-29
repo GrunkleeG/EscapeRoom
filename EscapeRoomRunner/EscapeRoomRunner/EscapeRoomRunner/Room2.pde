@@ -1,12 +1,11 @@
-public class Room2{
+public class EscapeRoom2{
   
-  public Room2(){
+  public EscapeRoom2(){
   }
   void display(){
-    
   }
 
-   void click() {
+   void clic() {
       if (mousePressed==true && mouseX>300&&mouseX<400&&mouseY>200&&mouseY<280) {
         println("Hi");
        // o=true;
