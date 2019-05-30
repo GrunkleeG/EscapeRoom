@@ -1,11 +1,11 @@
-class Room4 {
+class Room7 {
   boolean moveRight;
   boolean moveLeft;
   int count;
   int textx=7;
   int texty= 20;
 
-  public Room4() {
+  public Room7() {
   }
 
   void setup() {
@@ -16,7 +16,7 @@ class Room4 {
 
   void display() {
     textSize(20);
-    text("Success", 550, 20);
+    text("Success3", 550, 20);
   }
 
   void hover() {

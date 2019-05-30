@@ -5,13 +5,21 @@ Room1 room1;
 Room2 room2; //2=new Room2();
 Menu menu; //= new Menu();
 Room4 room4;
+Room3 room3;
+Room5 room5; 
+Room6 room6; 
+Room7 room7; 
 
 void setup() {
   menu = new Menu();
   room0 = new EscapeRoom();
   room1 = new Room1();
   room2 =new Room2();
+  room3 = new Room3();
   room4 = new Room4();
+  room5 = new Room5();
+  room6 = new Room6();
+  room7 = new Room7();
   size(820, 640);
   menu.setup();
   room0.setup();
@@ -57,11 +65,28 @@ void draw() {
     }
   } else if (roomNum ==3) {
     room4.display();
+    room4.hover();
     if (room4.changeScenes()) {
       roomNum=4;
     }
     if (room4.roomFailed()) {
-      roomNum=2;
+      roomNum=6;
+    }
+  } else if (roomNum ==4) {
+    room5.display();
+    if (room5.changeScenes()) {
+      roomNum=5;
+    }
+    if (room5.roomFailed()) {
+      roomNum=3;
+    }
+  } else if (roomNum ==5) {
+    room6.display();
+    if (room6.changeScenes()) {
+      roomNum=7;
+    }
+    if (room6.roomFailed()) {
+      roomNum=3;
     }
   }
 }

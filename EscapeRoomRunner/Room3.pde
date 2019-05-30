@@ -1,11 +1,11 @@
-class Room4 {
+class Room3 {
   boolean moveRight;
   boolean moveLeft;
   int count;
   int textx=7;
   int texty= 20;
 
-  public Room4() {
+  public Room3() {
   }
 
   void setup() {
