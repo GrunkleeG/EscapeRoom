@@ -4,8 +4,10 @@ class Room1 {
   Boolean moveOn;
   int count;
   int textx=7; 
-  int texty=10;
+  int texty=20;
   int whichGrillText;
+  int whichDoorRText;
+  int whichDoorLText;
 
   public Room1() {
     p2=loadImage("images/EscapeR1.jpg");
@@ -16,11 +18,13 @@ class Room1 {
     count=0;
     text= "";
     whichGrillText = 0;
+    whichDoorRText = 0;
+    whichDoorLText= 0;
   }
 
   void display() {
     textSize(20);
-    text("Hallway- facuet broke door lock", 500, texty);
+    text("hallway- facuet broke door lock", 500, texty);
     textSize(20);
     text(text, textx, texty);
 
@@ -39,6 +43,24 @@ class Room1 {
       } else {
         whichGrillText = 0;
       }
+      
+    } else if ( mouseX>90&&mouseX<150&&mouseY>300&&mouseY<380) { //DoorL
+      if (whichDoorLText == 0) {
+        text = "(Door)- limited opportunity";
+      } else if (whichDoorLText == 1) {
+        text = "are you trying to go back";
+      } else {
+        whichDoorLText = 0;
+      }
+      
+    } else if ( mouseX>430&&mouseX<490&&mouseY>300&&mouseY<380) { //DoorR
+      if (whichDoorRText == 0) {
+        text = "(Door)- limited opportunity";
+      } else if (whichDoorRText == 1) {
+        text = "are you trying to go back";
+      } else {
+        whichDoorRText = 0;
+      }
     } else if (mouseX>190&&mouseX<280&&mouseY>250&&mouseY<400) { // Door
       text = "(Door)- most likely locked";
     }
@@ -49,6 +71,17 @@ class Room1 {
       count++;
       whichGrillText++;
       println("Not working");
+      
+    }else if (  mouseX>90&&mouseX<150&&mouseY>300&&mouseY<380) { //DoorL
+      count++;
+      whichDoorLText++;
+      println("Not working");
+      
+    }else  if (  mouseX>430&&mouseX<490&&mouseY>300&&mouseY<380) { //DoorR
+      count++;
+      whichDoorRText++;
+      println("Not working");
+      
     } else if (mouseX>190&&mouseX<280&&mouseY>250&&mouseY<400) { // Door
       text =  "Success";
       moveOn = true;

@@ -3,7 +3,7 @@ public class EscapeRoom {
   int count;
   boolean moveOn;
   int textx=7; 
-  int texty=10;
+  int texty=20;
   String text;
   int whichCupText;
   int whichDoorText;
