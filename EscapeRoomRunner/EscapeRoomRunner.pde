@@ -26,6 +26,9 @@ void setup() {
   room1.setup();
   room2.setup();
   room4.setup();
+  room5.setup();
+  room6.setup();
+  room7.setup();
   roomNum = -1;
 }
 
@@ -64,29 +67,46 @@ void draw() {
       roomNum=-1;
     }
   } else if (roomNum ==3) {
+    roomNum=4;
+    //room3.display();
+    //room3.hover();
+    //if (room3.changeScenes()) {
+    // roomNum=4;
+    //}
+    // if (room3.roomFailed()) {
+    //  roomNum=-1;
+    //}
+  } else if (roomNum ==4) {
     room4.display();
-    room4.hover();
     if (room4.changeScenes()) {
-      roomNum=4;
+      roomNum=5;
     }
     if (room4.roomFailed()) {
       roomNum=6;
     }
-  } else if (roomNum ==4) {
+  } else if (roomNum ==5) {
     room5.display();
     if (room5.changeScenes()) {
-      roomNum=5;
+      roomNum=7;
     }
     if (room5.roomFailed()) {
       roomNum=3;
     }
-  } else if (roomNum ==5) {
+  } else if (roomNum ==6) {
     room6.display();
     if (room6.changeScenes()) {
       roomNum=7;
     }
     if (room6.roomFailed()) {
-      roomNum=3;
+      roomNum=-1;
+    }
+  } else if (roomNum ==7) {
+    room7.display();
+    if (room7.changeScenes()) {
+      roomNum=8;
+    }
+    if (room7.roomFailed()) {
+      roomNum=-1;
     }
   }
 }
@@ -100,8 +120,19 @@ void mousePressed() { //Processing calls this when you press and release the mou
     room1.click();
   } else if (roomNum == 2) {
     room2.click();
-  } else if (roomNum==4) {
+  } else if (roomNum==3) {
     room4.click();
-  } else {
+  }
+}
+
+void keyPressed() {
+  if (roomNum==4) {
+    room4.hover();
+  } else if (roomNum==5) {
+    room5.hover();
+  } else if (roomNum==6) {
+    room6.hover();
+  } else if (roomNum== 7) {
+    room7.hover();
   }
 } 

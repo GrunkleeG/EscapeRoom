@@ -1,4 +1,5 @@
 class Room4 {
+  PImage p4;
   boolean moveRight;
   boolean moveLeft;
   int count;
@@ -6,6 +7,7 @@ class Room4 {
   int texty= 20;
 
   public Room4() {
+    p4=loadImage("images/Duct.jpg");
   }
 
   void setup() {
@@ -16,7 +18,10 @@ class Room4 {
 
   void display() {
     textSize(20);
-    text("Success", 550, 20);
+    text("Use the right and Left arrow keys to crawl through Duct", 20, 20);
+    text("Duct",750, 20);
+    image(p4, 20, 50);
+    p4.resize(800, 500);
   }
 
   void hover() {
@@ -32,7 +37,10 @@ class Room4 {
   }
   boolean changeScenes() {
     if (moveRight) {
-      this.setup(); //resets count and moveOn in case we come back again
+      this.setup(); 
+      room5.setup();
+      room6.setup();
+      room7.setup();
       return true;
     }
     return false;
@@ -41,6 +49,9 @@ class Room4 {
   boolean roomFailed() {
     if (moveLeft) {
       this.setup();
+      room5.setup();
+      room6.setup();
+      room7.setup();
       return true;
     } else {
       return false;

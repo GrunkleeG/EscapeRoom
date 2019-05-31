@@ -1,4 +1,5 @@
 class Room6 {
+  PImage p4;
   boolean moveRight;
   boolean moveLeft;
   int count;
@@ -6,6 +7,7 @@ class Room6 {
   int texty= 20;
 
   public Room6() {
+    p4=loadImage("images/Duct.jpg");
   }
 
   void setup() {
@@ -16,11 +18,15 @@ class Room6 {
 
   void display() {
     textSize(20);
-    text("Success2", 550, 20);
+    text("Use the right and Left arrow keys", 20, texty);
+    text("What side of the road do people drive on in China?", 20, texty+ 25);
+    text("Duct2",750, texty);
+     image(p4, 20, 50);
+    p4.resize(800, 500);
   }
 
   void hover() {
-    if(keyCode== LEFT){
+   if(keyCode== LEFT){
     moveLeft=true;
     }else if (keyCode ==RIGHT) {
       moveRight=true;
