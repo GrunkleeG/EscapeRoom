@@ -20,19 +20,19 @@ class Room3 {
   }
 
   void hover() {
-    if(keyCode== LEFT){
-    moveLeft=true;
-    }else if (keyCode ==RIGHT) {
+    if (keyCode== LEFT) {
+      moveLeft=true;
+    } else if (keyCode ==RIGHT) {
       moveRight=true;
-  }else{
-    println("bad");
-  }
+    } else {
+      println("bad");
+    }
   }
   void click() {
   }
   boolean changeScenes() {
     if (moveRight) {
-      this.setup(); //resets count and moveOn in case we come back again
+      this.setup(); 
       return true;
     }
     return false;

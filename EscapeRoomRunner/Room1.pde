@@ -46,7 +46,7 @@ class Room1 {
       
     } else if ( mouseX>90&&mouseX<150&&mouseY>300&&mouseY<380) { //DoorL
       if (whichDoorLText == 0) {
-        text = "(Door)- limited opportunity";
+        text = "(Door)- possible escape";
       } else if (whichDoorLText == 1) {
         text = "are you trying to go back";
       } else {
@@ -55,7 +55,7 @@ class Room1 {
       
     } else if ( mouseX>430&&mouseX<490&&mouseY>300&&mouseY<380) { //DoorR
       if (whichDoorRText == 0) {
-        text = "(Door)- limited opportunity";
+        text = "(Door)- possible escape";
       } else if (whichDoorRText == 1) {
         text = "are you trying to go back";
       } else {
@@ -70,20 +70,16 @@ class Room1 {
     if ( mouseX>650&&mouseX<750&&mouseY>450&&mouseY<550) { //Grill
       count++;
       whichGrillText++;
-      println("Not working");
       
     }else if (  mouseX>90&&mouseX<150&&mouseY>300&&mouseY<380) { //DoorL
       count++;
       whichDoorLText++;
-      println("Not working");
       
     }else  if (  mouseX>430&&mouseX<490&&mouseY>300&&mouseY<380) { //DoorR
       count++;
       whichDoorRText++;
-      println("Not working");
       
     } else if (mouseX>190&&mouseX<280&&mouseY>250&&mouseY<400) { // Door
-      text =  "Success";
       moveOn = true;
     }
   }

@@ -25,6 +25,7 @@ class Room4 {
   }
 
   void hover() {
+    cursor(ARROW);
     if(keyCode== LEFT){
     moveLeft=true;
     }else if (keyCode ==RIGHT) {
@@ -38,9 +39,6 @@ class Room4 {
   boolean changeScenes() {
     if (moveRight) {
       this.setup(); 
-      room5.setup();
-      room6.setup();
-      room7.setup();
       return true;
     }
     return false;
@@ -49,9 +47,6 @@ class Room4 {
   boolean roomFailed() {
     if (moveLeft) {
       this.setup();
-      room5.setup();
-      room6.setup();
-      room7.setup();
       return true;
     } else {
       return false;

@@ -26,6 +26,7 @@ class Room6 {
   }
 
   void hover() {
+    cursor(ARROW);
    if(keyCode== LEFT){
     moveLeft=true;
     }else if (keyCode ==RIGHT) {

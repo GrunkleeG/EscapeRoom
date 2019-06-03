@@ -19,13 +19,14 @@ class Room7 {
   void display() {
     textSize(20);
     text("Use the Right and Left arrow keys", 20, texty);
-    text("With which foot did Neil Armstrong first step on the Moon?", 20, texty+25);
+    text("", 20, texty+25);
     text("Duct3", 750, 20);
     image(p4, 20, 50);
     p4.resize(800, 500);
   }
 
   void hover() {
+    cursor(ARROW);
     if (keyCode== LEFT) {
       moveLeft=true;
     } else if (keyCode ==RIGHT) {

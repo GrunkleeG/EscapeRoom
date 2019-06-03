@@ -1,14 +1,15 @@
 int roomNum;
 
+Menu menu;
 EscapeRoom room0;
 Room1 room1;
-Room2 room2; //2=new Room2();
-Menu menu; //= new Menu();
-Room4 room4;
+Room2 room2; 
 Room3 room3;
+Room4 room4;
 Room5 room5; 
 Room6 room6; 
 Room7 room7; 
+Room8 room8;
 
 void setup() {
   menu = new Menu();
@@ -20,6 +21,7 @@ void setup() {
   room5 = new Room5();
   room6 = new Room6();
   room7 = new Room7();
+  room8 = new Room8();
   size(820, 640);
   menu.setup();
   room0.setup();
@@ -29,6 +31,7 @@ void setup() {
   room5.setup();
   room6.setup();
   room7.setup();
+  room8.setup();
   roomNum = -1;
 }
 
@@ -98,7 +101,7 @@ void draw() {
       roomNum=7;
     }
     if (room6.roomFailed()) {
-      roomNum=-1;
+      roomNum=3;
     }
   } else if (roomNum ==7) {
     room7.display();
@@ -106,6 +109,16 @@ void draw() {
       roomNum=8;
     }
     if (room7.roomFailed()) {
+      roomNum=-1;
+    }
+  } else if(roomNum==8){
+    room8.display();
+    room8.hover();
+    room8.object();
+     if (room8.changeScenes()) {
+      roomNum=9;
+    }
+    if (room8.roomFailed()) {
       roomNum=-1;
     }
   }
@@ -120,8 +133,10 @@ void mousePressed() { //Processing calls this when you press and release the mou
     room1.click();
   } else if (roomNum == 2) {
     room2.click();
-  } else if (roomNum==3) {
+  } else if (roomNum==4) {
     room4.click();
+    } else if (roomNum==8) {
+    room8.click();
   }
 }
 
