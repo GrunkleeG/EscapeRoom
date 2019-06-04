@@ -2,6 +2,7 @@ class Room8 {
   PImage p5;
   boolean moveOn;
   boolean failOn;
+  boolean timer;
   int texty= 20;
   int hammercount;
   int swordcount;
@@ -10,6 +11,9 @@ class Room8 {
   int bbcount;
   int sscount;
   int count;
+  int totalTime;
+  int savedTime;
+  int passedTime;
 
   public Room8() {
     p5=loadImage("images/Room8.jpg");
@@ -24,6 +28,10 @@ class Room8 {
     count=0;
     moveOn=false;
     failOn=false;
+    timer=false;
+    totalTime=40000;
+    savedTime=0;
+    passedTime=0;
   }
 
   void draw() {
@@ -37,6 +45,8 @@ class Room8 {
     text("Utility Room", 650, texty);
     image(p5, 20, 40);
     p5.resize(800, 510);
+    passedTime = millis()-savedTime;
+    text(totalTime-passedTime, 650, texty+25);
   }
   void broomDisplay() {
     if (broomcount==0 || broomcount>=2) {     
@@ -91,17 +101,30 @@ class Room8 {
     }
   }
 
-  void hover() {
+  boolean timerS() {
+    if (passedTime > totalTime) {
+      savedTime = millis(); 
+      return true;
+    } else {
+      println("not working");
+      return false;
+    }
   }
   void click() {
     if ( mouseX>270&&mouseX<310&&mouseY>320&&mouseY<420) { //Hammer
       hammercount++;
       hhcount++;
+    } else if ( mouseX>270&&mouseX<310&&mouseY>320&&mouseY<420 && (hammercount==1)) { //Hammer
+      hammercount=0;
+      hhcount=0;
     } else if ( mouseX>500&&mouseX<555&&mouseY>400&&mouseY<500 && (hhcount==1) ) { //hammer hitting doorknob
       moveOn=true;
     } else if ( mouseX>110&&mouseX<150&&mouseY>330&&mouseY<455) { //Sword
       swordcount++;
       sscount++;
+    } else if ( mouseX>110&&mouseX<150&&mouseY>330&&mouseY<455 &&(swordcount==1)) { //Sword
+      swordcount--;
+      sscount--;
     } else if ( mouseX>200&&mouseX<400&&mouseY>0&&mouseY<600 && (sscount==1) ) { //sword cutting pipes
       text("Gases will kill you in 5 seconds", 20, texty+20);
       if ((second())>=5) {
@@ -112,7 +135,10 @@ class Room8 {
     } else if ( mouseX>200&&mouseX<250&&mouseY>350&&mouseY<525) { //broom
       broomcount++;
       bbcount++;
-    } else if ( mouseX>0&&mouseX<800&&mouseY>0&&mouseY<600 && (bbcount>=1) ) { //broom hitting floor
+    } else if ( mouseX>200&&mouseX<250&&mouseY>350&&mouseY<525 &&(broomcount==1)) { //broom
+      broomcount--;
+      bbcount--;
+    } else if ( mouseX>0&&mouseX<800&&mouseY>0&&mouseY<600 && (bbcount==1) ) { //broom hitting floor
       text("cleaning will not help you escape", 20, texty+20);
     } else {
       println("ok");
@@ -127,7 +153,7 @@ class Room8 {
   }
 
   boolean roomFailed() {
-    if (failOn) {
+    if (failOn || timerS()) {
       this.setup();
       return true;
     } else {
