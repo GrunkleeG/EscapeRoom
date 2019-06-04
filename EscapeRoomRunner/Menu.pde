@@ -8,6 +8,7 @@ public class Menu {
   }
   void display() {
     textSize(40);
+    fill(255,255,255);
     text("Prison Escape", 310, 220);
     textSize(20);
     text("You are in prison and need to escape. \nUse objects to escape from the rooms." + "\n" + "Grabbing too many objects will get you caught." + "\n" + "press any key to begin", 220, 250);

@@ -115,6 +115,9 @@ void draw() {
     room8.display();
     room8.hover();
     room8.object();
+    room8.broomDisplay();
+    room8.swordDisplay();
+    room8.hammerDisplay();
      if (room8.changeScenes()) {
       roomNum=9;
     }

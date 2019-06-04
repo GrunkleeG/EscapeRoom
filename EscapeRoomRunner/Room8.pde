@@ -1,6 +1,7 @@
 class Room8 {
   PImage p5;
   boolean moveOn;
+  boolean failOn;
   int texty= 20;
   int hammercount;
   int swordcount;
@@ -11,7 +12,7 @@ class Room8 {
   int count;
 
   public Room8() {
-    p5=loadImage("images/Hammer.jpg");
+    p5=loadImage("images/Room8.jpg");
   }
   void setup() {
     hammercount=0;
@@ -22,6 +23,7 @@ class Room8 {
     sscount=0;
     count=0;
     moveOn=false;
+    failOn=false;
   }
 
   void draw() {
@@ -33,58 +35,56 @@ class Room8 {
     fill(255, 255, 255);
     text("Use tools to click on objects", 20, texty);
     text("Utility Room", 650, texty);
-    // image(p5, 20, 200);
-    // p5.resize(800, 60);
-    fill(192, 192, 192);    //hammer
-    rect(260, 200, 100, 50);
-    fill(139, 69, 19);
-    rect(300, 250, 30, 60);
-
-    fill(139, 69, 19); //Broom
-    rect(200, 200, 50, 20);
-    rect(220, 140, 20, 60);
-    fill(222, 184, 135);
-    rect(202, 220, 46, 4);
-
-    fill(192, 192, 192); //sword
-    rect(120, mouseY-20, 20, 75);
-    triangle(mouseX+20, mouseY-45, mouseX+40, mouseY-35, mouseX+40, mouseY-35);
-    fill(139, 69, 19);
-    rect(120, mouseY+30, 50, 15);
-    rect(mouseX+20, mouseY+50, 20, 30);
+    image(p5, 20, 40);
+    p5.resize(800, 510);
   }
+  void broomDisplay() {
+    if (broomcount==0 || broomcount>=2) {     
+      fill(139, 69, 19); 
+      rect(200, 500, 50, 20);
+      rect(210, 350, 15, 150);
+      fill(222, 184, 135);
+      rect(202, 520, 46, 4);
+    }
+  }
+  void swordDisplay() {
+    if (swordcount==0 || swordcount>=2) { 
+      fill(192, 192, 192); 
+      rect(120, 350, 20, 75); 
+      triangle(120, 350, 140, 350, 130, 330);
+      fill(139, 69, 19);
+      rect(120, 425, 20, 30);
+      rect(110, 425, 40, 15);
+    }
+  }
+  void hammerDisplay() {
+    if (hammercount==0 || hammercount>=2) {
+      fill(192, 192, 192);    
+      rect(270, 320, 40, 30);
+      fill(139, 69, 19);
+      rect(280, 350, 20, 70);
+    }
+  }
+
   void object() {
     cursor(HAND);
     if (hammercount==1) {    //Hammer
-      //fill(192, 192, 192);
-      //  rect(150, 75, 400, 400);
-      //  fill(0);
-      // textSize(30);
-      // text("Unlocked Hammer", 200, 150);
-      // fill(192, 192, 192);
-      //  rect(260, 200, 100, 50);
-      // fill(139, 69, 19);
-      //  rect(300, 250, 30, 60);
-      // } else if (hammercount==2) {
-      fill(192, 192, 192);
-      rect(mouseX, mouseY, 80, 45);
+      fill(192, 192, 192);    
+      rect(mouseX-10, mouseY, 40, 30);
       fill(139, 69, 19);
-      rect(mouseX+30, mouseY+45, 27, 54);
+      rect(mouseX, mouseY+30, 20, 70);
     } else if (swordcount==1) {    //Sword
-      //  fill(155, 155, 155);
-      //} else if (swordcount==2) {
-      fill(192, 192, 192);
-      rect(mouseX+20, mouseY-20, 20, 75);
-      triangle(mouseX+20, mouseY-45, mouseX+40, mouseY-35, mouseX+40, mouseY-35);
+      fill(192, 192, 192); //sword
+      rect(mouseX, mouseY-75, 20, 75); 
+      triangle(mouseX, mouseY-75, mouseX+20, mouseY-75, mouseX+10, mouseY-95);
       fill(139, 69, 19);
-      rect(mouseX, mouseY+30, 50, 15);
-      rect(mouseX+20, mouseY+50, 20, 30);
+      rect(mouseX, mouseY, 20, 30);
+      rect(mouseX-10, mouseY, 40, 15);
     } else if (broomcount==1) {    //Broom
-      fill(155, 155, 155);
-      fill(139, 69, 19);
+      fill(139, 69, 19); //Broom
       rect(mouseX, mouseY, 50, 20);
-      rect(mouseX+20, mouseY-60, 20, 60);
-      fill(222, 184, 135);
+      rect(mouseX+10, mouseY-150, 15, 150);
+      fill(mouseX+22, mouseY-16, 135);
       rect(mouseX+2, mouseY+20, 46, 4);
     } else {
       println("bad");
@@ -94,21 +94,26 @@ class Room8 {
   void hover() {
   }
   void click() {
-    if ( mouseX>0&&mouseX<200&&mouseY>0&&mouseY<600) { //Hammer
+    if ( mouseX>270&&mouseX<310&&mouseY>320&&mouseY<420) { //Hammer
       hammercount++;
       hhcount++;
-    } else if ( mouseX>0&&mouseX<200&&mouseY>0&&mouseY<600 && (hhcount==1) ) { //hammer hitting wall
+    } else if ( mouseX>500&&mouseX<555&&mouseY>400&&mouseY<500 && (hhcount==1) ) { //hammer hitting doorknob
       moveOn=true;
-    } else if ( mouseX>200&&mouseX<400&&mouseY>0&&mouseY<600) { //Sword
+    } else if ( mouseX>110&&mouseX<150&&mouseY>330&&mouseY<455) { //Sword
       swordcount++;
       sscount++;
-    } else if ( mouseX>200&&mouseX<400&&mouseY>0&&mouseY<600 && (sscount==1) ) { //sword cutting bag
-      moveOn=true;
-    } else if ( mouseX>600&&mouseX<800&&mouseY>0&&mouseY<600) { //broom
+    } else if ( mouseX>200&&mouseX<400&&mouseY>0&&mouseY<600 && (sscount==1) ) { //sword cutting pipes
+      text("Gases will kill you in 5 seconds", 20, texty+20);
+      if ((second())>=5) {
+        println("working");
+        failOn=true;
+      } else {
+      }
+    } else if ( mouseX>200&&mouseX<250&&mouseY>350&&mouseY<525) { //broom
       broomcount++;
       bbcount++;
-    } else if ( mouseX>600&&mouseX<800&&mouseY>0&&mouseY<600 && (bbcount==1) ) { //broom hitting floor
-      text("cleaned the floor", 20, texty);
+    } else if ( mouseX>0&&mouseX<800&&mouseY>0&&mouseY<600 && (bbcount>=1) ) { //broom hitting floor
+      text("cleaning will not help you escape", 20, texty+20);
     } else {
       println("ok");
     }
@@ -122,7 +127,7 @@ class Room8 {
   }
 
   boolean roomFailed() {
-    if (count>=3) {
+    if (failOn) {
       this.setup();
       return true;
     } else {
