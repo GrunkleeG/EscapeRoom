@@ -30,8 +30,8 @@ class Room8 {
     failOn=false;
     timer=false;
     totalTime=40000;
-    savedTime=0;
-    passedTime=0;
+    //savedTime=0;
+    //passedTime=0;
   }
 
   void draw() {
@@ -46,7 +46,7 @@ class Room8 {
     image(p5, 20, 40);
     p5.resize(800, 510);
     passedTime = millis()-savedTime;
-    text(totalTime-passedTime, 650, texty+25);
+    text((totalTime-passedTime)/1000 +" seconds", 650, texty+25);
   }
   void broomDisplay() {
     if (broomcount==0 || broomcount>=2) {     
@@ -117,7 +117,7 @@ class Room8 {
     } else if ( mouseX>270&&mouseX<310&&mouseY>320&&mouseY<420 && (hammercount==1)) { //Hammer
       hammercount=0;
       hhcount=0;
-    } else if ( mouseX>500&&mouseX<555&&mouseY>400&&mouseY<500 && (hhcount==1) ) { //hammer hitting doorknob
+    } else if ( mouseX>550&&mouseX<600&&mouseY>400&&mouseY<500 && (hhcount==1) ) { //hammer hitting doorknob
       moveOn=true;
     } else if ( mouseX>110&&mouseX<150&&mouseY>330&&mouseY<455) { //Sword
       swordcount++;
