@@ -12,28 +12,26 @@ The main part of my code is using if(mousePressed in a ceratin location) then th
 
 ### Most interesting piece of your code and explanation for what it does.
 
-```Java
-void keyPressed() {
-if (keyCode == LEFT) {
-   tree= tree.getLeft();
-   System.out.println(tree.getValue());
-   String s=(String)tree.getValue();
-   fill(155);
-   textSize(50);
-} else if (keyCode == RIGHT) {
-   tree = tree.getRight();
-   System.out.println(tree.getValue());
-   String s=(String)tree.getValue();
-   fill(155);
-   textSize(50);
-} else if (tree.getLeft()==null&&tree.getRight()==null) {
-   System.out.println(tree.getValue());
-   tree=t.returnTree();
-}
-}
-```
-This is the code that moves down the tree as decisions are made. It gets each value from both left and right and also casts the value to a String. If the progressions arrives at the leaf nodes, those values are printed.
-## Built With
+void click() {
+    clickCount++;
+    println("good");
+    
+    if ( clickCount==1 && mouseX>250&&mouseX<425&&mouseY>500&&mouseY<625) { //8
+      kcount=3;
+      println("good1");
+    } else if ( clickCount==2 && kcount==3 && mouseX>100&&mouseX<225&&mouseY>350&&mouseY<475) { //4
+      kcount=4;
+      println("good2");
+    } else if ( clickCount==3 && kcount==4 && mouseX>100&&mouseX<225&&mouseY>500&&mouseY<625) { //7
+      kcount=5;
+      println("good3");
+    } else  if (clickCount==4 && kcount==5 && mouseX>400&&mouseX<525&&mouseY>350&&mouseY<475) { //6
+      moveOn = true;
+    } else {
+      count++;
+    }
+  }
+This is the code that allows a user to click on a keypad. This set of code checks if each key is clicked in order and makes sure all keys are clicked. While it is simple, it is basic code that is necessary for the basics of the escape room.
 
 * [Processing](https://processing.org/) - The IDE used
 
@@ -43,6 +41,4 @@ Keegan Henning
 George Grunklee
 
 ## Acknowledgments
-
-* Hat tip to anyone whose code was used
 * George's brother Jacob helped organzie the code and if statements in the draw class in the runner.
