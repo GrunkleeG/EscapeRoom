@@ -31,7 +31,7 @@ void click() {
       count++;
     }
   }
-This is the code that allows a user to click on a keypad. This set of code checks if each key is clicked in order and makes sure all keys are clicked. While it is simple, it is basic code that is necessary for the basics of the escape room.
+This is the code that allows a user to click on a keypad. This set of code checks if each key is clicked in order and makes sure all keys are clicked. While it is simple, it is basic code that is necessary for the basics of the escape room. In the runner I have a mousePressed method that runs the click method when this room is called.
 
 * [Processing](https://processing.org/) - The IDE used
 
