@@ -18,7 +18,7 @@ class Room4 {
 
   void display() {
     textSize(20);
-    text("Use the right and Left arrow keys to crawl through Duct", 20, 20);
+    text("Use the right and left arrow keys to crawl through duct", 20, 20);
     text("Duct",750, 20);
     image(p4, 20, 50);
     p4.resize(800, 500);

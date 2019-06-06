@@ -39,7 +39,7 @@ class Room6 {
   }
   boolean changeScenes() {
     if (moveRight) {
-      this.setup(); //resets count and moveOn in case we come back again
+      this.setup(); 
       return true;
     }
     return false;

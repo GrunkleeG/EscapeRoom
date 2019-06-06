@@ -85,7 +85,7 @@ class Room1 {
   }
   boolean changeScenes() {
     if (moveOn) {
-      this.setup(); //resets count and moveOn in case we come back again
+      this.setup(); 
       return true;
     }
     return false;

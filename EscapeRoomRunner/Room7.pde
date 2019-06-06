@@ -18,7 +18,7 @@ class Room7 {
 
   void display() {
     textSize(20);
-    text("Use the Right and Left arrow keys", 20, texty);
+    text("which is always wrong", 20, texty);
     text("", 20, texty+25);
     text("Duct3", 750, 20);
     image(p4, 20, 50);
@@ -39,7 +39,7 @@ class Room7 {
   }
   boolean changeScenes() {
     if (moveLeft) {
-      this.setup(); //resets count and moveOn in case we come back again
+      this.setup();
       return true;
     }
     return false;

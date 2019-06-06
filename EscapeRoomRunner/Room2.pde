@@ -56,17 +56,16 @@ public class Room2 { //Keypad
 
   void click() {
     clickCount++;
-    println("good");
     
     if ( clickCount==1 && mouseX>250&&mouseX<425&&mouseY>500&&mouseY<625) { //8
       kcount=3;
-      println("good1");
+      
     } else if ( clickCount==2 && kcount==3 && mouseX>100&&mouseX<225&&mouseY>350&&mouseY<475) { //4
       kcount=4;
-      println("good2");
+      
     } else if ( clickCount==3 && kcount==4 && mouseX>100&&mouseX<225&&mouseY>500&&mouseY<625) { //7
       kcount=5;
-      println("good3");
+      
     } else  if (clickCount==4 && kcount==5 && mouseX>400&&mouseX<525&&mouseY>350&&mouseY<475) { //6
       moveOn = true;
     } else {
@@ -76,7 +75,7 @@ public class Room2 { //Keypad
 
   boolean changeScenes() {
     if (moveOn) {
-      this.setup(); //resets count and moveOn in case we come back again
+      this.setup(); 
       return true;
     }
     return false;
