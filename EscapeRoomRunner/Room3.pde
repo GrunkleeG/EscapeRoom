@@ -19,7 +19,7 @@ class Room3 {
   }
 
   void setup() {
-    partOne=false;
+    partOne=false; // You should reset guardCount in here
     moveOn= false;
     count=0;
     text="";
