@@ -19,9 +19,10 @@ class Room3 {
   }
 
   void setup() {
-    partOne=false; // You should reset guardCount in here
+    partOne=false; 
     moveOn= false;
     count=0;
+    guardCount = 0;
     text="";
     whichTableText = 0;
     whichMachineText = 0;
